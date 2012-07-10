@@ -1,0 +1,1 @@
+<li><a class="sidebar_icon" href="<?= base_url() ?>home/withings"><img src="<?= $this_module_assets ?>withings_24.png"><span>Withings</span></a></li>
