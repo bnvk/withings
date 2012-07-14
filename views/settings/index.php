@@ -7,18 +7,31 @@
 		<p><a href="<?= base_url() ?>api/<?= $this_module ?>/uninstall" id="app_uninstall" class="button_delete">Uninstall</a></p>
 	</div>
 	
-	<h3>Permissions</h3>
+	<h3>Application Keys</h3>
 
-	<p>Create
-	<?= form_dropdown('create_permission', config_item('users_levels'), $settings['withings']['create_permission']) ?>
+	<p>Fitbit requires <a href="https://dev.fitbit.com/apps/new" target="_blank">registering your application</a></p>
+				
+	<p><input type="text" name="consumer_key" value="<?= $settings['withings']['consumer_key'] ?>"> Oauth Key </p> 
+	<p><input type="text" name="consumer_secret" value="<?= $settings['withings']['consumer_secret'] ?>"> Oauth Secret</p>
+
+</div>
+
+<span class="item_separator"></span>
+
+<div class="content_wrap_inner">
+
+	<h3>Social</h3>
+
+	<p>Connections 
+	<?= form_dropdown('social_connection', config_item('yes_or_no'), $settings['withings']['social_connection']) ?>
 	</p>
 
-	<p>Publish
-	<?= form_dropdown('publish_permission', config_item('users_levels'), $settings['withings']['publish_permission']) ?>	
+	<p>Connections Redirect<br>
+	<?= base_url() ?> <input type="text" size="30" name="connections_redirect" value="<?= $settings['withings']['connections_redirect'] ?>" />
 	</p>
 
-	<p>Manage All
-	<?= form_dropdown('manage_permission', config_item('users_levels'), $settings['withings']['manage_permission']) ?>	
+	<p>Archive Data
+	<?= form_dropdown('archive', config_item('yes_or_no'), $settings['withings']['archive']) ?>
 	</p>
 
 	<input type="hidden" name="module" value="<?= $this_module ?>">
