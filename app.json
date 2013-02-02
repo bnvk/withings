@@ -6,7 +6,7 @@
 	"creator":"Brennan Novak",
 	"category":"tools",	
 	"links":{
-		"default":"home/withings/"
+		"default":"home/withings/weight"
 	},
 	"launcher":"yes"
 }

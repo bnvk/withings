@@ -124,32 +124,5 @@ class Connections extends MY_Controller
 			}		
 		}
 	}
-
-	function test()
-	{
-		// Basic Content Redirect
-        $this->load->library('oauth');
-
-        // Create Consumer
-        $consumer = $this->oauth->consumer(array(
-            'key' 	 	=> config_item('withings_consumer_key'),
-            'secret' 	=> config_item('withings_consumer_secret')
-        ));
-
-        // Load Provider
-        $withings = $this->oauth->provider('withings');
-
-        // Create Tokens
-		$tokens = OAuth_Token::forge('request', array(
-			'access_token' 	=> 'f7bc8f65009146e5fed1ee2e9d7b18fe81cdd72358c0c64f9bfcf6fd9cef933',
-			'secret' 		=> '95b113be41005eb9ff54236585d12cb1c1742be8038789cd464d1fbb21331'
-		));
-
-		$withings_data = $withings->get_user_info($consumer, $tokens);
-
-		echo '<pre>';
-		print_r($withings_data);		
-	}
-	
 	
 }

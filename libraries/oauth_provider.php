@@ -21,9 +21,9 @@ class OAuth_Provider_Withings extends OAuth_Provider {
 	}
 
 	public function get_user_info(OAuth_Consumer $consumer, OAuth_Token $token)
-	{		
+	{
 		// Create a new GET request with the required parameters
-		$request = OAuth_Request::forge('resource', 'GET', 'http://wbsapi.withings.net/measure?action=getmeas&userid=933243&startdate=1222819200&enddate=1223190167', array(
+		$request = OAuth_Request::forge('resource', 'GET', 'http://wbsapi.withings.net/measure?action=getmeas&userid=933243', array(
 			'oauth_consumer_key' 	=> $consumer->key,
 			'oauth_token' 			=> $token->access_token
 		));
@@ -31,8 +31,8 @@ class OAuth_Provider_Withings extends OAuth_Provider {
 		// Sign the request using the consumer and token
 		$request->sign($this->signature, $consumer, $token);
 
-		$activities = json_decode($request->execute());
-		
+		$activities = $request->execute();
+
 		// Create a response from the request
 		return $activities;
 	}
